@@ -3,25 +3,22 @@ export default class ProxyPromise {
   constructor() {
     this.state = 'pending'
 
-    const promise = new Promise((resolve, reject) => {
-      this.resolve = resolve
-      this.reject = reject
-    })
-
-    this.underlyingPromise = promise
-      .then(value => {
+    this.underlyingPromise = new Promise((resolve, reject) => {
+      this.resolve = (value) => {
         this.state = 'resolved'
         this.value = value
-        return value
-      })
-      .catch(error => {
+        resolve(value)
+      }
+
+      this.reject = (error) => {
         this.state = 'rejected'
         this.error = error
-        throw error
-      })
+        reject(error)
+      }
+    })
 
-    this.callback = (err, value) => {
-      (err == null) ? this.resolve(err) : this.reject(value)
+    this.callback = (error, value) => {
+      (error == null) ? this.resolve(value) : this.reject(error)
     }
   }
 
