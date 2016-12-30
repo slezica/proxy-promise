@@ -1,6 +1,6 @@
 {
   "name": "proxy-promise",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Promise that can be settled and inspected by third-parties",
   "author": "Santiago Lezica <salezica@gmail.com> (https://github.com/slezica/)",
   "homepage": "https://github.com/slezica/proxy-promise",
