@@ -1,6 +1,13 @@
 {
   "name": "proxy-promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "A Promise that can be settled and inspected by third-parties",
+  "author": "Santiago Lezica <salezica@gmail.com> (https://github.com/slezica/)",
+  "homepage": "https://github.com/slezica/proxy-promise",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slezica/proxy-promise.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
