@@ -8,6 +8,10 @@ For example, a function dispatching tasks to background workers can create a
 `ProxyPromise` and return it immediately. A worker can later grab the `ProxyPromise`
 and settle it, while the original caller is waiting.
 
+```
+npm install proxy-promise
+```
+
 
 ### Usage
 
