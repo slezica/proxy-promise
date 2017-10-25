@@ -12,6 +12,8 @@ and settle it, while the original caller is waiting.
 npm install proxy-promise
 ```
 
+The package includes Typescript definitions.
+
 
 ### Usage
 
