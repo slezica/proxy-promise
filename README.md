@@ -53,7 +53,7 @@ giving them a regular `Promise`.
 ### Inspection
 
 You can inspect a `ProxyPromise` by looking at its `state` property. The `state`
-is set `'pending'` at creation, then to `'resolved'` or `'rejected'`.
+is set to `'pending'` at creation, then to `'resolved'` or `'rejected'`.
 
 - When `state` is `'resolved'`, the `ProxyPromise` will have a `value` property.
 
