@@ -1,3 +1,4 @@
+import 'mocha'
 import { spy } from 'sinon'
 import { expect, assert } from 'chai'
 
@@ -44,7 +45,7 @@ describe('ProxyPromise', function() {
     const p = new ProxyPromise()
 
     const h1 = spy()
-    const h2 = spy(x => x)
+    const h2 = spy((x: any) => x)
     const h3 = spy()
 
     p.then(h1)
@@ -96,11 +97,11 @@ describe('ProxyPromise', function() {
     const p1 = new ProxyPromise()
     const value = 1010
 
-    p1.resolve = spy(p1.resolve)
+    const spiedResolve = p1.resolve = spy(p1.resolve)
     p1.callback(null, value)
 
-    assert(p1.resolve.calledOnce)
-    assert(p1.resolve.calledWithExactly(value))
+    assert(spiedResolve.calledOnce)
+    assert(spiedResolve.calledWithExactly(value))
   })
 
   it("should be rejected by its callback", function() {
@@ -108,22 +109,22 @@ describe('ProxyPromise', function() {
     const error = new Error()
 
     p2.catch(nop) // the unhandled rejection terminates modern Node
-    p2.reject = spy(p2.reject)
+    const spiedReject = p2.reject = spy(p2.reject)
     p2.callback(error)
 
-    assert(p2.reject.calledOnce)
-    assert(p2.reject.calledWithExactly(error))
+    assert(spiedReject.calledOnce)
+    assert(spiedReject.calledWithExactly(error))
   })
 
   it("should have a self-bound callback", function() {
     const p = new ProxyPromise()
-    p.resolve = spy(p.resolve)
+    const spiedResolve = p.resolve = spy(p.resolve)
 
     const value = 1010
     const callback = p.callback // would break with an unbound function
     callback(null, value)
 
-    assert(p.resolve.calledWithExactly(value))
+    assert(spiedResolve.calledWithExactly(value))
   })
 })
 

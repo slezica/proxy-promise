@@ -1,6 +1,6 @@
 {
   "name": "proxy-promise",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A Promise that can be settled and inspected by third-parties",
   "author": "Santiago Lezica <salezica@gmail.com> (https://github.com/slezica/)",
   "homepage": "https://github.com/slezica/proxy-promise",
@@ -9,24 +9,26 @@
     "url": "https://github.com/slezica/proxy-promise.git"
   },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "babel src --out-dir dist",
-    "test": "mocha --compilers js:babel-register",
+    "build": "tsc",
+    "test": "mocha --compilers ts:ts-node/register",
     "prepublish": "npm run build"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
+  "dependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "@types/sinon": "^2.3.6"
   }
 }
