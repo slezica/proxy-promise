@@ -1,6 +1,6 @@
 {
   "name": "proxy-promise",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A Promise that can be settled and inspected by third-parties",
   "author": "Santiago Lezica <salezica@gmail.com> (https://github.com/slezica/)",
   "homepage": "https://github.com/slezica/proxy-promise",
@@ -24,9 +24,7 @@
     "mocha": "^3.2.0",
     "sinon": "^1.17.6",
     "ts-node": "^3.3.0",
-    "typescript": "^2.5.3"
-  },
-  "dependencies": {
+    "typescript": "^2.5.3",
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
     "@types/sinon": "^2.3.6"
