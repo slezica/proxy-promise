@@ -14,10 +14,10 @@ export default class ProxyPromise<T> implements PromiseLike<T> {
   public state: 'pending' | 'resolved' | 'rejected'
 
   public value?: T
-  public error?: Error
+  public error?: any
 
-  public resolve  : (value: T) => void
-  public reject   : (error: Error) => void
+  public resolve  : (value?: T) => void
+  public reject   : (error?: any) => void
   public callback : (error?: Error, value?: T) => void
 
   private _promise: Promise<T>
